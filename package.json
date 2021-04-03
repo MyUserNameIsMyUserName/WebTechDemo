@@ -1,0 +1,42 @@
+{
+  "name": "WebTechDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install_global_npm_items": "npm install -g lighthouse node-sass nodemon @babel/core @babel/cli babel-minify localtunnel image-2-min imagemin-cli imagemin-pngquant pngquant-bin gifsicle",
+    "install_req": "npm run install_global_npm_items && npm install",
+    "build_app": "bash _builder/build.sh",
+    "serve_app": "start bash -c \" node dev_server.js \" ",
+    "bs_": "npm run build_app && npm run serve_app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyUserNameIsMyUserName/WebTechDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyUserNameIsMyUserName/WebTechDemo/issues"
+  },
+  "homepage": "https://github.com/MyUserNameIsMyUserName/WebTechDemo#readme",
+  "dependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "autoprefixer": "^6.5.4",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-remove-comments": "^2.0.0",
+    "browserslist": "^4.16.3",
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "livereload": "^0.9.1",
+    "selenium-server": "^3.141.59",
+    "webpack": "^5.16.0",
+    "chromedriver": "^89.0.0",
+    "geckodriver": "^1.22.3",
+    "nightwatch": "^1.6.1"
+  }
+}

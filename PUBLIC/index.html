@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/jpg" href="/assets/img/logo.png" />
+    <link href="/styles/main.css" rel="stylesheet" />
+    <script src="/scripts/egah.js"></script>
+    <script src="/scripts/console-blocker.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="page_section">
+        <div class="half">
+          <img class="logo_H300" src="/assets/img/logo.png" />
+          <h1>[> - WebTechDemo - <]</h1>
+          <p>Giving people a reason to stay up at night.</p>
+        </div>
+        <div class="half">
+          <select name="type" id="print_type">
+            <option value="info">info</option>
+            <option value="log">log</option>
+            <option value="warn">warn</option>
+            <option value="error">error</option>
+          </select>
+          <button onclick="iWillErrorOut();">Start Erroring</button>
+        </div>
+      </div>
+
+      <div class="page_section errorLists">
+        <div class="error_list_container demoErrList disabled_elemenet">
+          <div class="title">
+            <h4>Errors from console.</h4>
+          </div>
+          <div class="contentList" id="consoleErrorListDisplay"></div>
+          <div class="footer">
+            <p>
+              Number of errors so far:
+              <span id="demo_err_numb_display_id"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="error_list_container egah_error_list">
+          <div class="title">
+            <h4>Errors EGAH managed to catch.</h4>
+          </div>
+          <div class="contentList" id="egahErrorListDisplay"></div>
+          <div class="footer">
+            <p>
+              Number of errors so far:
+              <span id="demo_err_numb_display_id"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="error_list_container egah_live_feed soon_to_come_elem">
+          <div class="title">
+            <h4>Errors live feed from our EGAH socket.io.</h4>
+          </div>
+          <div class="contentList"></div>
+          <div class="footer">
+            <p>
+              Number of errors so far:
+              <span id="demo_err_numb_display_id"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
