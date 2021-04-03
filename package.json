@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install_global_npm_items": "npm install -g lighthouse node-sass nodemon @babel/core @babel/cli babel-minify localtunnel image-2-min imagemin-cli imagemin-pngquant pngquant-bin gifsicle",
+    "install_global_npm_items": "npm install -g lighthouse node-sass nodemon @babel/core @babel/cli babel-minify localtunnel image-2-min imagemin-cli imagemin-pngquant pngquant-bin gifsicle dotenv-cli",
     "install_req": "npm run install_global_npm_items && npm install",
     "build_app": "bash _builder/build.sh",
-    "serve_app": "start bash -c \" node dev_server.js \" ",
-    "bs_": "npm run build_app && npm run serve_app"
+    "dev_build_app": "bash _builder/build.sh dev",
+    "serve_app": "start bash -c \" node server.js \" ",
+    "dev_serve_app": "start bash -c \" node dev_server.js \" ",
+    "build_and_serve": "npm run build_app && npm run serve_app",
+    "bs_": "npm run build_and_serve",
+    "dev_bs": "npm run dev_serve_app && nodemon --exec npm run dev_build_app --ignore ./PUBLIC"
   },
   "repository": {
     "type": "git",
