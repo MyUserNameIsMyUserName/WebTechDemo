@@ -3,8 +3,10 @@
 # 🛸 WebTechDemo 💨
 
 > A way to do many stuff using a command line interface....  
-> ![node version number](https://img.shields.io/github/package-json/v/Naddiya/README_template)
-> ![MIT license](https://img.shields.io/github/package-json/license/Naddiya/README_Template?color=green)
+> ![ node version number ](https://img.shields.io/github/package-json/v/Naddiya/README_template)
+> ![ MIT license ](https://img.shields.io/github/package-json/license/Naddiya/README_Template?color=green)
+> [![ CodeQL ](https://github.com/MyUserNameIsMyUserName/WebTechDemo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/MyUserNameIsMyUserName/WebTechDemo/actions/workflows/codeql-analysis.yml)
+> [![ Codacy Security Scan ](https://github.com/MyUserNameIsMyUserName/WebTechDemo/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/MyUserNameIsMyUserName/WebTechDemo/actions/workflows/codacy-analysis.yml)
 
 ## 📝 Details about project
 
