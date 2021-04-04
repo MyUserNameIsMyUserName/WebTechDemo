@@ -80,18 +80,6 @@ body {
       }
     }
   }
-
-  * {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 0, 0, 0.15);
-    opacity: 0.75;
-    box-shadow: 0 5px 10px black;
-
-    &:hover {
-      opacity: 1;
-      box-shadow: 0 10px 20px black;
-    }
-  }
 }
 
 #app .error {

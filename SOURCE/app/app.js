@@ -7,68 +7,74 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-
 //const true_origin = PROTOCOL+"://"+ORIGIN+":" + PORT + "/"
 
-const true_origin = "http://localhost:500"
-
-
+const true_origin = "http://localhost:500";
 // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
 var pageStyles = document.getElementById("app_styles_container");
 
 function loadError(oError) {
-    throw new URIError("The script " + oError.target.src + " didn't load correctly.");
+  throw new URIError(
+    "The script " + oError.target.src + " didn't load correctly."
+  );
 }
 
 function loadScript(url, onloadFunction) {
-    var newScript = document.createElement("script");
-    newScript.onerror = loadError;
-    if (onloadFunction) { newScript.onload = onloadFunction; }
-    pageScripts.appendChild(newScript);
-    newScript.src = url;
+  var newScript = document.createElement("script");
+  newScript.onerror = loadError;
+  if (onloadFunction) {
+    newScript.onload = onloadFunction;
+  }
+  pageScripts.appendChild(newScript);
+  newScript.src = url;
 }
 
 function loadStyle(url) {
-    var newStyle = document.createElement("link");
-    newStyle.setAttribute("rel", "stylesheet");
-    newStyle.setAttribute("type", "text/css");
-    newStyle.setAttribute("href", url);
-    pageStyles.appendChild(newStyle);
+  var newStyle = document.createElement("link");
+  newStyle.setAttribute("rel", "stylesheet");
+  newStyle.setAttribute("type", "text/css");
+  newStyle.setAttribute("href", url);
+  pageStyles.appendChild(newStyle);
 }
 
-function finishLoading(){
-    document.body.classList.add('loaded');
+function loadSection(fileName) {
+  var request = new XMLHttpRequest();
+  request.open("GET", "/sections/" + fileName + ".html", false); // `false` makes the request synchronous
+  request.send(null);
+  if (request.status === 200) {
+    return request.responseText;
+  }
 }
 
-function startLoading(){
-    document.body.classList.remove('loaded');
+function finishLoading() {
+  document.body.classList.add("loaded");
 }
 
-
+function startLoading() {
+  document.body.classList.remove("loaded");
+}
 window.onload = function () {
-  
-    if (true_origin !== window.location.origin) {
-        console.log("Origin not cool. Mkey? ");
-        window.location.replace(true_origin);
-    }
+  if (true_origin !== window.location.origin) {
+    console.log("Origin not cool. Mkey? ");
+    window.location.replace(true_origin);
+  }
 
-    loadScript("/scripts/helpers/modal.js", function () { /* testModalFunc(); */ });
-    loadScript("/scripts/helperes/router.js", function () { findCurrentRoute(); });
+  loadScript("/scripts/helpers/modal.js", function () {
+    /* testModalFunc(); */
+  });
+  loadScript("/scripts/helpers/router.js", function () {
+    findCurrentRoute();
+  });
 
-    loadStyle("/styles/app.css");
-    loadStyle("/styles/modal.css");
-
+  loadStyle("/styles/main.css");
+  loadStyle("/styles/modal.css");
 };
 
-
-
-
-
-// ORIGINALLY USED TO TEST ERROR CAPTURE AND HANDLE 
-// LEFT IN HERE CUZ IT WILL BE REMOVED AS A COMMENT 
-  /*
+// ORIGINALLY USED TO TEST ERROR CAPTURE AND HANDLE
+// LEFT IN HERE CUZ IT WILL BE REMOVED AS A COMMENT
+/*
 
 ["thisIdDoesNotExist", "apple", "orange", "cherry"].forEach(tryFakeElemIds);
 

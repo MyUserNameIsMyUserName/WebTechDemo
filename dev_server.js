@@ -20,7 +20,14 @@ app.use(compression());
 // Static content
 app.use(express.static(STATIC));
 
+// All GET request handled by INDEX file
+app.get("*", function (req, res) {
+  res.sendFile(INDEX);
+});
+
 // Start server
 app.listen(PORT, function () {
-  console.log("Server up and running on "+PROTOCOL+"://"+ORIGIN+":" + PORT + "/");
+  console.log(
+    "Server up and running on " + PROTOCOL + "://" + ORIGIN + ":" + PORT + "/"
+  );
 });
