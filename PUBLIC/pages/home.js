@@ -1,1 +1,4 @@
-function createHomepage(){landingHomeElement(),finishLoading()}function landingHomeElement(){const a=document.createElement("div"),b=document.createTextNode("Hi there and greetings! Welcome to the landing page of A^O_DOCS");a.appendChild(b);document.getElementById("div1");document.getElementById("app").appendChild(a)}createHomepage();
+function createHomepage(){landingHomeElement(),finishLoading()}function landingHomeElement(){const a=document.createElement("div"),b=document.createTextNode("Hi there and greetings! Welcome to the landing page of A^O_DOCS");a.appendChild(b);document.getElementById("div1");document.getElementById("app").appendChild(a),document.getElementById("app").innerHTML+=`<h2>Pages To Visit: </h2>
+                                              <a href="/wp.demo.html">wp.demo.html</a>
+                                              <a href="/demo.html">demo.html</a>
+                                              <a href="/ui.preview.tool.html">ui.preview.tool.html</a>`}createHomepage();

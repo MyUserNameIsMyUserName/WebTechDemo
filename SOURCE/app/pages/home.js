@@ -20,6 +20,11 @@ function landingHomeElement() {
   const currentDiv = document.getElementById("div1");
 
   document.getElementById("app").appendChild(newDiv);
+
+  document.getElementById("app").innerHTML += `<h2>Pages To Visit: </h2>
+                                              <a href="/wp.demo.html">wp.demo.html</a>
+                                              <a href="/demo.html">demo.html</a>
+                                              <a href="/ui.preview.tool.html">ui.preview.tool.html</a>`;
 }
 
 createHomepage();
