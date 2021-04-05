@@ -1,0 +1,81 @@
+<style>
+
+body {
+    font-size: 15px;
+    line-height: 1.25em;
+    font-family: monospace;
+    background: radial-gradient(darkgrey, #313131);
+    color: white;
+}
+
+.route_item {
+    margin: 5px 10px;
+    padding: 10px 20px;
+    background: #263238;
+}
+
+</style>
+
+<h1>
+    DEMO REST API WP
+</h1>
+
+<div class="wp_rest_api">
+    <h3 class="title">WP Rest API Root request:</h3>
+    <p>Name: <span id="website_name"></span></p>
+    <p>Description: <span id="website_description"></span></p>
+    <p>URL: <span id="website_url"></span></p>
+    <p>Home: <span id="website_home"></span></p>
+    <p>gmt_offset: <span id="website_gmt_offset"></span></p>
+    <p>timezone_string: <span id="website_timezone_string"></span></p>
+    <p>namespaces: <span id="website_namespaces"></span></p>
+    <p>authentication: <span id="website_authentication"></span></p>
+    <p>- application-passwords: <span id="website_application-passwords"></span></p>
+    <p>  - endpoints: <span id="website_authentication_endpoints"></span></p>
+    <p>    - authorization: <span id="website_authentication_endpoints_authorization"></span></p>
+    <p>routes: <span id="website_routes"></span></p>
+    <div id="website_routes_each"></div>
+    <p>_links: <span id="website__links"></span></p>
+    <p id="root_api_req"></p>    
+</div>
+
+<script>
+getText("https://quickmedcards.com/medical-marijuana-card/wp-json/");
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("root_api_req").innerHTML = myText;
+
+
+  
+  let myJSON = JSON.parse(myText);
+  console.log(myJSON);
+  document.getElementById("website_name").innerHTML = myJSON.name;
+  document.getElementById("website_description").innerHTML = myJSON.description;
+  document.getElementById("website_url").innerHTML = myJSON.url;
+  document.getElementById("website_home").innerHTML = myJSON.home;
+  document.getElementById("website_gmt_offset").innerHTML = myJSON.gmt_offset;
+  document.getElementById("website_timezone_string").innerHTML = myJSON.timezone_string;
+  document.getElementById("website_namespaces").innerHTML = myJSON.namespaces;
+  document.getElementById("website_authentication").innerHTML = JSON.stringify( myJSON.authentication );
+  document.getElementById("website_application-passwords").innerHTML = JSON.stringify(myJSON.authentication["application-passwords"]);
+  document.getElementById("website_authentication_endpoints").innerHTML = JSON.stringify(myJSON.authentication["application-passwords"].endpoints);
+  document.getElementById("website_authentication_endpoints_authorization").innerHTML = myJSON.authentication["application-passwords"].endpoints.authorization;
+  //document.getElementById("website_routes").innerHTML =  JSON.stringify(myJSON.routes);
+  document.getElementById("website__links").innerHTML =  JSON.stringify(myJSON._links);
+
+
+  for (i in myJSON.routes) {
+    document.getElementById("website_routes_each").innerHTML += `<div class='route_item'> 
+                                                                    <h4> Namespace: ` + myJSON.routes[i].namespace + ` </h4>
+                                                                    <h4> Methods: ` + myJSON.routes[i].methods + ` </h4>
+                                                                    <h4> Endpoints: ` + myJSON.routes[i].endpoints + ` </h4>
+                                                                    <h4> Links: ` + myJSON.routes[i]._links + ` </h4>
+                                                                    </div>`;
+
+  }
+
+}
+</script>
+
