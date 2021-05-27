@@ -32,7 +32,7 @@
     "autoprefixer": "^6.5.4",
     "babel-loader": "^8.2.2",
     "babel-plugin-remove-comments": "^2.0.0",
-    "browserslist": "^4.16.3",
+    "browserslist": "^4.16.5",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
