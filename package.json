@@ -41,6 +41,6 @@
     "webpack": "^5.16.0",
     "chromedriver": "^89.0.0",
     "geckodriver": "^1.22.3",
-    "nightwatch": "^1.6.1"
+    "nightwatch": "^2.6.3"
   }
 }
